@@ -2,4 +2,10 @@
     <string name="app_name">2048-app</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="upButton">Up</string>
+    <string name="leftButton">Left</string>
+    <string name="rightButton">Right</string>
+    <string name="downButton">Down</string>
+    <string name="new_game_button">New Game</string>
+    <string name="high_scores_button">High Scores</string>
 </resources>
