@@ -11,4 +11,16 @@
         android:label="Game"
         tools:layout="@layout/fragment_game" />
 
+    <fragment
+        android:id="@+id/navigation_color"
+        android:name="com.zybooks.a2048_app.GameFragment"
+        android:label="@string/title_color"
+        tools:layout="@layout/fragment_color" />
+
+    <fragment
+        android:id="@+id/navigation_help"
+        android:name="com.zybooks.a2048_app.GameFragment"
+        android:label="@string/title_help"
+        tools:layout="@layout/fragment_help" />
+
 </navigation>
