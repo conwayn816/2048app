@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.zybooks.a2048_app.R;
+import android.view.Gravity;
 
 public class GameFragment extends Fragment {
 
@@ -26,13 +27,16 @@ public class GameFragment extends Fragment {
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 4; col++) {
                 TextView textView = new TextView(requireContext());
-                textView.setText(""); // Initially empty
-                // Set appearance (size, background, etc.) as needed
+                textView.setText("Grid Cell"); // Initially empty
+                textView.setTextSize(24); // Example text size
+                textView.setGravity(Gravity.CENTER); // Center text
+                textView.setBackgroundResource(R.drawable.grid_item_background); // Set background drawable
+
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
                 params.rowSpec = GridLayout.spec(row, 1f);
                 params.columnSpec = GridLayout.spec(col, 1f);
-                params.width = 0;
-                params.height = 0;
+                params.width = GridLayout.LayoutParams.MATCH_PARENT;
+                params.height = GridLayout.LayoutParams.MATCH_PARENT;
                 gameGrid.addView(textView, params);
             }
         }

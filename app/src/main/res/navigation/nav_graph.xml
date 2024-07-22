@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_color"
-        android:name="com.zybooks.a2048_app.GameFragment"
+        android:name="com.zybooks.a2048_app.ColorFragment"
         android:label="@string/title_color"
         tools:layout="@layout/fragment_color" />
 
     <fragment
         android:id="@+id/navigation_help"
-        android:name="com.zybooks.a2048_app.GameFragment"
+        android:name="com.zybooks.a2048_app.HelpFragment"
         android:label="@string/title_help"
         tools:layout="@layout/fragment_help" />
 
