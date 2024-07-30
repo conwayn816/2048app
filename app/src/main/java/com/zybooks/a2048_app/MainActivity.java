@@ -1,6 +1,8 @@
 package com.zybooks.a2048_app;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,5 +36,8 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig);
             NavigationUI.setupWithNavController(navView, navController);
         }
+
+
     }
+
 }
