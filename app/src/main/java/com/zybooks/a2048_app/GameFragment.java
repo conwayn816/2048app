@@ -7,13 +7,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.os.Handler;
+import android.os.SystemClock;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class GameFragment extends Fragment {
-
+    private TextView timerTextView;
+    private long startTime = 0;
+    private Handler customHandler = new Handler();
+    private long timeInMilliseconds = 0;
     private Grid2048View grid2048View;
     private GestureDetector gestureDetector;
 
@@ -21,9 +27,10 @@ public class GameFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
-
+        timerTextView = view.findViewById(R.id.timer_text_view);
         grid2048View = view.findViewById(R.id.grid2048View);
         Button newGameButton = view.findViewById(R.id.new_game_button);
+        StartTimer();
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +79,19 @@ public class GameFragment extends Fragment {
         }
     }
     public void StartTimer () {
-
+        startTime = SystemClock.uptimeMillis();
+        customHandler.postDelayed(updateTimerThread, 0);
     }
+    private Runnable updateTimerThread = new Runnable() {
+        public void run() {
+            timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
+            int secs = (int) (timeInMilliseconds / 1000);
+            int mins = secs / 60;
+            secs %= 60;
+            int milliseconds = (int) (timeInMilliseconds % 1000);
+            timerTextView.setText("" + mins + ":" + String.format("%02d", secs) + ":" + String.format("%03d", milliseconds));
+            customHandler.postDelayed(this, 0);
+        }
+    };
 }
 

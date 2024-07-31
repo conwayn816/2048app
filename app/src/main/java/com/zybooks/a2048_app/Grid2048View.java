@@ -4,8 +4,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.Random;
 //initialize the grid
@@ -86,6 +88,7 @@ public class Grid2048View extends View {
             default: return Color.rgb(205, 193, 180);
         }
     }
+
     public void resetGame() {
 
         // Clear the grid
@@ -99,6 +102,7 @@ public class Grid2048View extends View {
         addRandomTile();
         addRandomTile();
         invalidate();
+        
 
     }
     // This is to visually move the block left
