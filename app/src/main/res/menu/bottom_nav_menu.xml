@@ -6,10 +6,6 @@
         android:icon="@drawable/home_icon"
         android:title="@string/title_game" />
 
-    <item
-        android:id="@+id/navigation_color"
-        android:icon="@drawable/color_icon"
-        android:title="@string/title_color" />
 
     <item
         android:id="@+id/navigation_help"
