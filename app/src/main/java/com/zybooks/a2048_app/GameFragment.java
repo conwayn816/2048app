@@ -71,5 +71,8 @@ public class GameFragment extends Fragment {
             return false;
         }
     }
+    public void StartTimer () {
+
+    }
 }
 
