@@ -1,5 +1,7 @@
 package com.zybooks.a2048_app;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,19 @@ public class GameFragment extends Fragment {
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grid2048View.resetGame();
+                // Get the context of the fragment
+                Context context = getActivity();
+                if (context != null) {
+                    SharedPreferences scoreStorage = context.getSharedPreferences("scoreStorage", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = scoreStorage.edit();
+
+                    if (scoreStorage.getInt("highScore", 0) < grid2048View.findMaxValue()) {
+                        editor.putInt("highScore", grid2048View.findMaxValue());
+                    }
+
+                    editor.apply();
+                    grid2048View.resetGame();
+                }
             }
         });
 

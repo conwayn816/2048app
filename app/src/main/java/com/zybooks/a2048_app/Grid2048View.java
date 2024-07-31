@@ -1,5 +1,6 @@
 package com.zybooks.a2048_app;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -56,7 +57,6 @@ public class Grid2048View extends View {
                 }
             }
         }
-
         return maxValue;
     }
 
