@@ -44,6 +44,23 @@ public class Grid2048View extends View {
 
         grid[row][col] = random.nextFloat() < 0.9f ? 2 : 4;
     }
+
+    //find max value in array
+    public int findMaxValue() {
+        int maxValue = Integer.MIN_VALUE; // Start with the smallest possible value
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] > maxValue) {
+                    maxValue = grid[i][j];
+                }
+            }
+        }
+
+        return maxValue;
+    }
+
+
 //Draw The Box
     @Override
     protected void onDraw(Canvas canvas) {
