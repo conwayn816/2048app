@@ -105,6 +105,8 @@ public class Grid2048View extends View {
     }
     public void resetGame() {
 
+
+
         // Clear the grid
 
         for (int i = 0; i < SIZE; i++) {
