@@ -5,8 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.Random;
 //initialize the grid
@@ -103,6 +105,7 @@ public class Grid2048View extends View {
             default: return Color.rgb(205, 193, 180);
         }
     }
+
     public void resetGame() {
 
 
@@ -114,11 +117,12 @@ public class Grid2048View extends View {
                 grid[i][j] = 0;
             }
         }
-        // Add two new random tiles
+        // Add two new random tiles and regenerate the view
         addRandomTile();
         addRandomTile();
-        // Redraw the view
         invalidate();
+
+
     }
     // This is to visually move the block left
     public void moveLeft() {
@@ -152,10 +156,14 @@ public class Grid2048View extends View {
                 grid[i][index++] = 0;
             }
         }
-        if (moved) {
-            addRandomTile();
-            invalidate();
-        }
+
+
+        // Add two new random tiles and regenerate the view
+        addRandomTile();
+
+        invalidate();
+
+
     }
     //This will visually move the block to the right
     public void moveRight() {
@@ -193,13 +201,14 @@ public class Grid2048View extends View {
             }
         }
 
-        // Add a new random tile if any tiles moved or merged
-        if (moved) {
-            addRandomTile();
-            invalidate();
-        }
+
+        // Add two new random tiles and regenerate the view
+        addRandomTile();
+
+        invalidate();
+
     }
-    private void moveUp() {
+    public void moveUp() {
         boolean moved = false;
 
         // Iterate over each column
@@ -243,14 +252,13 @@ public class Grid2048View extends View {
             }
         }
 
-        // Add a new random tile if any tile moved
-        if (moved) {
-            addRandomTile();
-        }
-        // Redraw the grid
+        // Add two new random tiles and regenerate the view
+        addRandomTile();
+
         invalidate();
+
     }
-    private void moveDown() {
+    public void moveDown() {
         boolean moved = false;
 
         // Iterate over each column
@@ -294,12 +302,10 @@ public class Grid2048View extends View {
             }
         }
 
-        // Add a new random tile if any tile moved
-        if (moved) {
-            addRandomTile();
-        }
-        // Redraw the grid
+
+        // Add two new random tiles and regenerate the view
+        addRandomTile();
+
         invalidate();
     }
-
-}
+    }

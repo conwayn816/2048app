@@ -43,25 +43,9 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupWithNavController(navView, navController);
         }
 
-        mDetector = new GestureDetectorCompat(this, new SwipeGestureListener());
 
-    }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        mDetector.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
-
-    // This function handles swipes from the user
-    private class SwipeGestureListener extends GestureDetector.SimpleOnGestureListener {
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            // do changes to board
-
-            // function for showing board
-            return true;
         }
-    }
+
 
 }
